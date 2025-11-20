@@ -7,12 +7,12 @@ function App() {
   const [data, setData] = useState('');
 
   const getChain = async () => {
-    const res = await axios.get('http://localhost:3000/chain');
+    const res = await axios.get('https://blockchain-simulator-pqg6.onrender.com/chain');
     setChain(res.data);
   }
   
   const createBlock = async () => {
-    await axios.post('http://localhost:3000/add', { data });
+    await axios.post('https://blockchain-simulator-pqg6.onrender.com/add', { data });
     setData('');
     getChain();
   }
