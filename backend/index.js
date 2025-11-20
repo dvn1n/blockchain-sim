@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const PORT = process.env.port || 3000;
 
 const Block = require('./Block');
 const Blockchain = require('./Blockchain');
@@ -20,4 +21,4 @@ app.post('/add', (req, res) => {
     res.json(chain.getChain());
 });
 
-app.listen(3000, () => console.log('backend on 3000'));
+app.listen(PORT, () => console.log(`backend on ${PORT}`));
