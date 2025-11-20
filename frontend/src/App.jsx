@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     getChain();
-  });
+  }, [chain]);
 
   return ( 
     <div>
