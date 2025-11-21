@@ -3,7 +3,7 @@ const Block = require('./Block');
 class Blockchain {
     constructor() {
         this.chain = [new Block(0, Date.now(), "Genesis Block", "0")];
-        this.diff = 1;
+        this.diff = 5;
     }
 
     getLastestBlock() {
