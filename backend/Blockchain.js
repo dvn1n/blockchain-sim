@@ -3,6 +3,7 @@ const Block = require('./Block');
 class Blockchain {
     constructor() {
         this.chain = [new Block(0, Date.now(), "Genesis Block", "0")];
+        this.diff = 3;
     }
 
     getLastestBlock() {
@@ -11,7 +12,7 @@ class Blockchain {
 
     createBlock(block) {
         block.previousHash = this.getLastestBlock().hash;
-        block.hash = block.calculateHash();
+        block.mineBlock(this.diff);
         this.chain.push(block);
     }
 
