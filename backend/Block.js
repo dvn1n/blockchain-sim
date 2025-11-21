@@ -11,7 +11,7 @@ class Block {
     }
 
     calculateHash() {
-        return crypto.createHash('sha256').update(this.index + this.timestamp + JSON.stringify(this.data) + this.previousHash).digest('hex');
+        return crypto.createHash('sha256').update(this.index + this.timestamp + JSON.stringify(this.data) + this.previousHash + this.nonce).digest('hex');
     }
 
     mineBlock(diff) {
