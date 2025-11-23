@@ -15,7 +15,7 @@ function App() {
   }
   
   const createBlock = async () => {
-    await axios.post('https://blockchain-simulator-pqg6.onrender.com/add', { data });
+    await axios.post('https://blockchain-simulator-pqg6.onrender.com/add', { senderData, receiverData, data });
     setPendingTransaction([]);
     getChain();
   }
@@ -50,6 +50,7 @@ function App() {
           <hr />
         </div>
       ))}
+      <button onClick={createBlock}>add block</button>
       <h2>Chain</h2>
       {chain.map((block) => (
         <div key={block.hash}>
