@@ -2,7 +2,7 @@ const Block = require('./Block');
 
 class Blockchain {
     constructor() {
-        this.chain = [new Block(0, Date.now(), {'sender':'unknown', 'receiver':'unknown','data':'unknown'}, "0")];
+        this.chain = [new Block(0, Date.now(), [{ sender: 'genesis', receiver: 'network', data: 'genesis block' }], "0")];
         this.pendingTransaction = [];
         this.diff = 5;
     }
