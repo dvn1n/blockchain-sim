@@ -55,7 +55,13 @@ function App() {
       {chain.map((block) => (
         <div key={block.hash}>
           <p>Index : {block.index}</p>
-          <p>Data : {JSON.stringify(block.data)}</p>
+          {block.data.map((tx, idx) => (
+            <div key={idx}>
+              <p>Sender : {tx.sender}</p>
+              <p>Receiver : {tx.receiver}</p>
+              <p>Data : {tx.data}</p>
+            </div>
+          ))}
           <p>Hash : {block.hash}</p>
           <p>Prev : {block.previousHash}</p>
           <hr />
