@@ -11,11 +11,13 @@ class Block {
     }
 
     calculateHash() {
-        return crypto.createHash('sha256').update(this.index + this.timestamp + JSON.stringify(this.data) + this.previousHash + this.nonce).digest('hex');
+        dataStr = this.index + this.previousHash + this.timestamp + JSON.stringify(this.data) + this.nonce;
+        return crypto.createHash('sha256').update(dataStr).digest('hex');
     }
 
     mineBlock(diff) {
-        while (!this.hash.startsWith(Array(diff + 1).join('0'))){
+        const target = Array(diff + 1).join('0')
+        while (!this.hash.startsWith(target)){
             this.nonce++;
             this.hash = this.calculateHash();
         }
